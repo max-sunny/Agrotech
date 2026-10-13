@@ -48,8 +48,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
+// Health check endpoints
+app.get(['/api/health', '/health', '/'], (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Agri-Tech API server is healthy',
